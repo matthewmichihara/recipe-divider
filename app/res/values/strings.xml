@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">Recipe Divider</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Home</string>
+    <string name="title_activity_recipe_splitter">RecipeSplitterActivity</string>
+    <string name="title_activity_recipe_results">RecipeResultsActivity</string>
+    <string name="share">Share</string>
+    <string name="calculate_new_recipe">Calculate new recipe</string>
+    <string name="split_recipe">Split Recipe</string>
+    <string name="save_to_recipe_box">Save to recipe box</string>
+    <string name="title_activity_recipe_box">RecipeBoxActivity</string>
+    <string name="add_ingredient">Add Ingredient</string>
+    <string name="enter_original_recipe">Enter Original Recipe</string>
+    <string name="ingredient_n">Ingredient %1$d:</string>
+    <string name="quantity">Quantity</string>
+
+</resources>
