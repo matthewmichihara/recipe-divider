@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 		btnAddIngredient.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ingredients.add(new Ingredient("", 0, Ingredient.UNIT_CUP));
+				ingredients.add(new Ingredient("", 0, getString(R.string.oz)));
 				ingredientAdapter.notifyDataSetChanged();
 			}
 		});
@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 		});
 
 		// Add the first ingredient.
-		ingredients.add(new Ingredient("", 0, "kg"));
+		ingredients.add(new Ingredient("", 0, getString(R.string.oz)));
 		ingredientAdapter.notifyDataSetChanged();
 	}
 

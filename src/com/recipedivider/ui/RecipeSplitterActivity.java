@@ -17,6 +17,9 @@ import com.recipedivider.model.Ingredient;
 public class RecipeSplitterActivity extends Activity {
 
 	private static final String TAG = RecipeSplitterActivity.class.getSimpleName();
+	private int mOriginalServings = 0;
+	private int mDesiredServings = 0;
+	private int mCookTime = 0;
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class RecipeSplitterActivity extends Activity {
 		Intent intent = getIntent();
 		ArrayList<Ingredient> ingredients = intent.getParcelableArrayListExtra("ingredients");
 
+		// Log the ingredients that were passed in.
 		for (Ingredient ingredient : ingredients) {
 			String s = "Name: " + ingredient.getName() + " Quantity: " + ingredient.getQuantity() + " Units: " + ingredient.getUnits();
 			Log.i(TAG, s);
@@ -39,7 +43,6 @@ public class RecipeSplitterActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-
 	}
 
 	@Override
