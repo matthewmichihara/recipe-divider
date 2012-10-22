@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -60,10 +62,14 @@ public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.units_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		mSpUnits.setAdapter(adapter);
-		mSpUnits.setOnFocusChangeListener(new OnFocusChangeListener() {
+		mSpUnits.setOnItemSelectedListener(new OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				ingredient.setUnits((String) arg0.getItemAtPosition(arg2));
+			}
 
 			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
+			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
 

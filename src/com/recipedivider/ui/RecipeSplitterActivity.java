@@ -27,7 +27,7 @@ public class RecipeSplitterActivity extends Activity {
 		ArrayList<Ingredient> ingredients = intent.getParcelableArrayListExtra("ingredients");
 
 		for (Ingredient ingredient : ingredients) {
-			String s = "Name: " + ingredient.getName() + " Quantity: " + ingredient.getQuantity();
+			String s = "Name: " + ingredient.getName() + " Quantity: " + ingredient.getQuantity() + " Units: " + ingredient.getUnits();
 			Log.i(TAG, s);
 		}
 
