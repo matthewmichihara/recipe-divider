@@ -24,6 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/et_ingredient_name"
+        android:background="@drawable/input_label"
+        android:padding="7dp"
         android:text="@string/quantity" />
 
     <EditText
