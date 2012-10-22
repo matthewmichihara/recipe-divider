@@ -1,7 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#edede5" >
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_bg"
+        android:contentDescription="@string/empty" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:background="#800000" />
 
     <Button
         android:id="@+id/btn_split_recipe"
@@ -26,8 +39,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/enter_original_recipe" />
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/enter_original_recipe"
+        android:textSize="20sp" />
 
     <ListView
         android:id="@+id/lv_ingredients"
@@ -35,8 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_add_ingredient"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tv_enter_original_recipe" >
-
+        android:layout_below="@+id/tv_enter_original_recipe"
+        android:layout_marginLeft="10dp" >
     </ListView>
 
 </RelativeLayout>

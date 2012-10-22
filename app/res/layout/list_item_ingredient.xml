@@ -29,6 +29,7 @@
         android:layout_alignTop="@+id/tv_quantity"
         android:layout_toLeftOf="@+id/sp_units"
         android:layout_toRightOf="@+id/tv_quantity"
+        android:background="@drawable/input_field"
         android:inputType="number" />
 
     <Spinner
