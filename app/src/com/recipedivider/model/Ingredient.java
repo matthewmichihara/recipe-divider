@@ -3,23 +3,19 @@ package com.recipedivider.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.parse.ParseObject;
-
 public class Ingredient implements Parcelable {
 	private String mName;
 	private int mQuantity;
 	private String mUnits;
 
+	public static final String UNIT_OUNCE = "oz";
+	public static final String UNIT_TABLESPOON = "tbsp";
+	public static final String UNIT_CUP = "cup";
+
 	public Ingredient(final String name, final int quantity, final String units) {
 		mName = name;
 		mQuantity = quantity;
 		mUnits = units;
-	}
-
-	public Ingredient(final ParseObject object) {
-		mName = object.getString("name");
-		mQuantity = object.getInt("quantity");
-		mUnits = object.getString("units");
 	}
 
 	public String getName() {
@@ -34,8 +30,16 @@ public class Ingredient implements Parcelable {
 		return mQuantity;
 	}
 
+	public void setQuantity(int quantity) {
+		mQuantity = quantity;
+	}
+
 	public String getUnits() {
 		return mUnits;
+	}
+
+	public void setUnits(String units) {
+		mUnits = units;
 	}
 
 	@Override

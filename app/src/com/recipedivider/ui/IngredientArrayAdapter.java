@@ -3,7 +3,6 @@ package com.recipedivider.ui;
 import java.util.List;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -40,13 +39,33 @@ public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
-				Log.i(TAG, "Saving name - " + mEtIngredientName.getText().toString());
 				ingredient.setName(mEtIngredientName.getText().toString());
 			}
 		});
 
-		EditText mEtQuantity = (EditText) convertView.findViewById(R.id.et_quantity);
+		final EditText mEtQuantity = (EditText) convertView.findViewById(R.id.et_quantity);
+		mEtQuantity.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				try {
+					ingredient.setQuantity(Integer.valueOf(mEtQuantity.getText().toString()));
+				} catch (NumberFormatException e) {
+					// probably empty
+				}
+			}
+		});
+
 		Spinner mSpUnits = (Spinner) convertView.findViewById(R.id.sp_units);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.units_array, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		mSpUnits.setAdapter(adapter);
+		mSpUnits.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+			}
+		});
 
 		return convertView;
 	}

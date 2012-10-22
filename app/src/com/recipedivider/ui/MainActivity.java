@@ -22,7 +22,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		final ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
-
 		final ListView lvIngredients = (ListView) findViewById(R.id.lv_ingredients);
 		final IngredientArrayAdapter ingredientAdapter = new IngredientArrayAdapter(this, ingredients);
 		lvIngredients.setAdapter(ingredientAdapter);
@@ -31,7 +30,7 @@ public class MainActivity extends Activity {
 		btnAddIngredient.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ingredients.add(new Ingredient("", 0, "kg"));
+				ingredients.add(new Ingredient("", 0, Ingredient.UNIT_CUP));
 				ingredientAdapter.notifyDataSetChanged();
 			}
 		});
