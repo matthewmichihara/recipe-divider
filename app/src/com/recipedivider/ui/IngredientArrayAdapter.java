@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.recipedivider.R;
 import com.recipedivider.model.Ingredient;
@@ -33,11 +32,10 @@ public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 
 		final Ingredient ingredient = getItem(position);
 
-		final TextView tvIngredientN = (TextView) convertView.findViewById(R.id.tv_ingredient_n);
-		final String ingredientN = getContext().getString(R.string.ingredient_n, position + 1);
-		tvIngredientN.setText(ingredientN);
-
 		final EditText mEtIngredientName = (EditText) convertView.findViewById(R.id.et_ingredient_name);
+		final String ingredientN = getContext().getString(R.string.ingredient_n, position + 1);
+		mEtIngredientName.setHint(ingredientN);
+
 		mEtIngredientName.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 			@Override
@@ -46,6 +44,7 @@ public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 				ingredient.setName(mEtIngredientName.getText().toString());
 			}
 		});
+
 		EditText mEtQuantity = (EditText) convertView.findViewById(R.id.et_quantity);
 		Spinner mSpUnits = (Spinner) convertView.findViewById(R.id.sp_units);
 

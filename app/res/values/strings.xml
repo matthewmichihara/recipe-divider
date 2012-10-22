@@ -13,7 +13,7 @@
     <string name="title_activity_recipe_box">RecipeBoxActivity</string>
     <string name="add_ingredient">Add Ingredient</string>
     <string name="enter_original_recipe">Enter Original Recipe</string>
-    <string name="ingredient_n">Ingredient %1$d:</string>
+    <string name="ingredient_n">Ingredient %1$d</string>
     <string name="quantity">Quantity</string>
 
 </resources>
