@@ -1,70 +1,123 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#edede5" >
 
-    <Button
-        android:id="@+id/btn_calculate"
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_bg"
+        android:contentDescription="@string/empty" />
+
+    <View
         android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_below="@+id/header"
+        android:background="#800000" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/calculate_new_recipe" />
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_border" >
+
+        <Button
+            android:id="@+id/btn_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/next_btn"
+            android:text="@string/calculate_new_recipe"
+            android:textColor="#8d8d8d"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/divider"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_original_servings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/original_servings" />
+        android:layout_below="@+id/divider"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/input_label"
+        android:padding="7dp"
+        android:text="@string/original_servings"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/et_original_servings"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tv_original_servings"
-        android:inputType="number" >
+        android:layout_alignTop="@+id/tv_original_servings"
+        android:layout_below="@+id/divider"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/tv_original_servings"
+        android:background="@drawable/input_field"
+        android:inputType="number"
+        android:textColor="#000000" >
     </EditText>
 
     <TextView
         android:id="@+id/tv_desired_servings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_below="@+id/et_original_servings"
-        android:text="@string/desired_servings" />
-
-    <EditText
-        android:id="@+id/et_desired_servings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tv_desired_servings"
-        android:inputType="number" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/input_label"
+        android:padding="7dp"
+        android:text="@string/desired_servings"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/tv_cook_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/et_desired_servings"
-        android:text="@string/cook_time" />
+        android:layout_below="@+id/tv_desired_servings"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/input_label"
+        android:padding="7dp"
+        android:text="@string/cook_time"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/et_cook_time"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tv_cook_time"
-        android:inputType="number" />
+        android:layout_alignTop="@+id/tv_cook_time"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/tv_cook_time"
+        android:background="@drawable/input_field"
+        android:inputType="number"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/et_desired_servings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_desired_servings"
+        android:layout_alignBottom="@+id/tv_desired_servings"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/tv_desired_servings"
+        android:background="@drawable/input_field"
+        android:inputType="number"
+        android:textColor="#000000" />
 
 </RelativeLayout>

@@ -12,6 +12,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/input_field"
         android:hint="@string/ingredient_n"
         android:inputType="text"
@@ -26,7 +27,8 @@
         android:layout_below="@+id/et_ingredient_name"
         android:background="@drawable/input_label"
         android:padding="7dp"
-        android:text="@string/quantity" />
+        android:text="@string/quantity"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/et_quantity"
@@ -36,7 +38,8 @@
         android:layout_toLeftOf="@+id/sp_units"
         android:layout_toRightOf="@+id/tv_quantity"
         android:background="@drawable/input_field"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="#000000" />
 
     <Spinner
         android:id="@+id/sp_units"
@@ -44,5 +47,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/et_quantity" />
+
+    <View
+        android:id="@+id/divider_line_top"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/et_quantity"
+        android:layout_height="1dp"
+        android:background="#eae6d8" />
+
+    <View
+        android:id="@+id/divider_line_bottom"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/divider_line_top"
+        android:layout_height="1dp"
+        android:background="#f1eeea" />
 
 </RelativeLayout>

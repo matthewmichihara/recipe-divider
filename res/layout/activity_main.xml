@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#edede5" >
+    android:background="#edede5"
+    android:orientation="vertical" >
 
     <ImageView
         android:id="@+id/header"
@@ -16,30 +17,10 @@
         android:layout_height="5dp"
         android:background="#800000" />
 
-    <Button
-        android:id="@+id/btn_split_recipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/split_recipe" />
-
-    <Button
-        android:id="@+id/btn_add_ingredient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_split_recipe"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/add_ingredient" />
-
     <TextView
         android:id="@+id/tv_enter_original_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/header"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/enter_original_recipe"
@@ -48,11 +29,45 @@
     <ListView
         android:id="@+id/lv_ingredients"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_add_ingredient"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tv_enter_original_recipe"
-        android:layout_marginLeft="10dp" >
-    </ListView>
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1" />
 
-</RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_border" >
+
+        <Button
+            android:id="@+id/btn_add_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/next_btn"
+            android:text="@string/add_ingredient"
+            android:textColor="#8d8d8d"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_border" >
+
+        <Button
+            android:id="@+id/btn_split_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/next_btn"
+            android:text="@string/split_recipe"
+            android:textColor="#8d8d8d"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+</LinearLayout>
