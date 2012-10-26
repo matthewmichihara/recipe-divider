@@ -5,14 +5,10 @@ import android.os.Parcelable;
 
 public class Ingredient implements Parcelable {
 	private String mName;
-	private int mQuantity;
+	private double mQuantity;
 	private String mUnits;
 
-	public static final String UNIT_OUNCE = "oz";
-	public static final String UNIT_TABLESPOON = "tbsp";
-	public static final String UNIT_CUP = "cup";
-
-	public Ingredient(final String name, final int quantity, final String units) {
+	public Ingredient(final String name, final double quantity, final String units) {
 		mName = name;
 		mQuantity = quantity;
 		mUnits = units;
@@ -26,11 +22,11 @@ public class Ingredient implements Parcelable {
 		mName = name;
 	}
 
-	public int getQuantity() {
+	public double getQuantity() {
 		return mQuantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		mQuantity = quantity;
 	}
 
@@ -50,7 +46,7 @@ public class Ingredient implements Parcelable {
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeString(mName);
-		dest.writeInt(mQuantity);
+		dest.writeDouble(mQuantity);
 		dest.writeString(mUnits);
 	}
 
@@ -68,7 +64,7 @@ public class Ingredient implements Parcelable {
 
 	private Ingredient(Parcel in) {
 		mName = in.readString();
-		mQuantity = in.readInt();
+		mQuantity = in.readDouble();
 		mUnits = in.readString();
 	}
 }
