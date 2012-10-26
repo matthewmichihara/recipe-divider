@@ -10,6 +10,14 @@
     <description>It divides recipes</description>
     <url>https://github.com/matthewmichihara/recipe-divider</url>
 
+    <repositories>
+        <repository>
+            <id>in-project</id>
+            <name>In Project Repo</name>
+            <url>file://${project.basedir}/libs</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>com.google.android</groupId>
@@ -17,6 +25,13 @@
             <version>4.1.1.4</version>
             <scope>provided</scope>
         </dependency>
+                
+        <dependency>
+            <groupId>parse</groupId>
+            <artifactId>parse</artifactId>
+            <version>1.1.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -42,29 +57,6 @@
                         <platform>16</platform>
                     </sdk>
                 </configuration>
-            </plugin>
-
-             <plugin>
-                <groupId>com.googlecode.addjars-maven-plugin</groupId>
-                <artifactId>addjars-maven-plugin</artifactId>
-                <version>1.0.4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>add-jars</goal>
-                        </goals>
-                        <configuration>
-                            <resources>
-                                <resource>
-                                    <directory>${basedir}/libs</directory>
-                                    <includes>
-                                        <include>**/*.jar</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
