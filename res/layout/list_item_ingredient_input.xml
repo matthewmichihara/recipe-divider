@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp" >
+
+    <EditText
+        android:id="@+id/et_ingredient_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/input_field"
+        android:hint="@string/ingredient_n"
+        android:inputType="text"
+        android:textColor="#000000" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/tv_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/et_ingredient_name"
+        android:background="@drawable/input_label"
+        android:padding="7dp"
+        android:text="@string/quantity"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/et_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_quantity"
+        android:layout_toLeftOf="@+id/sp_units"
+        android:layout_toRightOf="@+id/tv_quantity"
+        android:background="@drawable/input_field"
+        android:inputType="number"
+        android:textColor="#000000" />
+
+    <Spinner
+        android:id="@+id/sp_units"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/et_quantity" />
+
+    <View
+        android:id="@+id/divider_line_top"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/et_quantity"
+        android:layout_height="1dp"
+        android:background="#eae6d8" />
+
+    <View
+        android:id="@+id/divider_line_bottom"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/divider_line_top"
+        android:layout_height="1dp"
+        android:background="#f1eeea" />
+
+</RelativeLayout>

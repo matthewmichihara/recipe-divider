@@ -12,6 +12,7 @@
     <string name="save_to_recipe_box">Save to recipe box</string>
     <string name="title_activity_recipe_box">RecipeBoxActivity</string>
     <string name="add_ingredient">Add Ingredient</string>
+    <string name="enter_recipe_name">Enter Recipe Name</string>
     <string name="enter_original_recipe">Enter Original Recipe</string>
     <string name="ingredient_n">Ingredient %1$d</string>
     <string name="quantity">QUANTITY</string>
@@ -20,6 +21,8 @@
     <string name="desired_servings">DESIRED SERVINGS</string>
     <string name="cook_time">COOK TIME</string>
     <string name="divider">Divider</string>
+    <string name="your_recipe">Your Recipe</string>
+    <string name="quantity_unit_ingredient">%1$f %2$s - %3$s</string>
 
     <!-- Units -->
     <string name="oz">oz</string>

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.recipedivider.R;
@@ -22,8 +23,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		final ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+		final EditText etRecipeName = (EditText) findViewById(R.id.et_recipe_name);
 		final ListView lvIngredients = (ListView) findViewById(R.id.lv_ingredients);
-		final IngredientArrayAdapter ingredientAdapter = new IngredientArrayAdapter(this, ingredients);
+		final IngredientInputArrayAdapter ingredientAdapter = new IngredientInputArrayAdapter(this, ingredients);
 		lvIngredients.setAdapter(ingredientAdapter);
 
 		final Button btnAddIngredient = (Button) findViewById(R.id.btn_add_ingredient);
@@ -40,6 +42,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(final View v) {
 				final Intent intent = new Intent(MainActivity.this, RecipeSplitterActivity.class);
+				final String recipeName = etRecipeName.getText().toString();
+				intent.putExtra("recipeName", recipeName);
 				intent.putParcelableArrayListExtra("ingredients", ingredients);
 				startActivity(intent);
 			}

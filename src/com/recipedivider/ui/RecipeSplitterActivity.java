@@ -14,27 +14,24 @@ import android.widget.EditText;
 
 import com.recipedivider.R;
 import com.recipedivider.model.Ingredient;
+import com.recipedivider.model.Recipe;
 
 public class RecipeSplitterActivity extends Activity {
 
 	private static final String TAG = RecipeSplitterActivity.class.getSimpleName();
-	private int mOriginalServings = 0;
-	private int mDesiredServings = 0;
-	private int mCookTime = 0;
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_recipe_splitter);
 
-		Intent intent = getIntent();
+		final Intent intent = getIntent();
+		final String recipeName = intent.getStringExtra("recipeName");
 		final ArrayList<Ingredient> ingredients = intent.getParcelableArrayListExtra("ingredients");
 
-		// Log the ingredients that were passed in.
-		for (Ingredient ingredient : ingredients) {
-			String s = "Name: " + ingredient.getName() + " Quantity: " + ingredient.getQuantity() + " Units: " + ingredient.getUnits();
-			Log.i(TAG, s);
-		}
+		// Log the passed in extras.
+		Log.d(TAG, "recipeName: " + recipeName);
+		Log.d(TAG, "ingredients: " + ingredients);
 
 		final EditText etOriginalServings = (EditText) findViewById(R.id.et_original_servings);
 		final EditText etDesiredServings = (EditText) findViewById(R.id.et_desired_servings);
@@ -46,27 +43,17 @@ public class RecipeSplitterActivity extends Activity {
 			public void onClick(final View v) {
 				final Intent intent = new Intent(RecipeSplitterActivity.this, RecipeResultsActivity.class);
 				try {
-					mOriginalServings = Integer.valueOf(etOriginalServings.getText().toString());
+					final int originalServings = Integer.valueOf(etOriginalServings.getText().toString());
+					final int desiredServings = Integer.valueOf(etDesiredServings.getText().toString());
+					final int cookTime = Integer.valueOf(etCookTime.getText().toString());
+
+					final Recipe recipe = new Recipe(recipeName, ingredients, originalServings, cookTime);
+					final Recipe dividedRecipe = recipe.getDividedRecipe(desiredServings);
+					intent.putExtra("recipe", dividedRecipe);
+					startActivity(intent);
 				} catch (NumberFormatException e) {
 					Log.w(TAG, "Error", e);
 				}
-
-				try {
-					mDesiredServings = Integer.valueOf(etDesiredServings.getText().toString());
-				} catch (NumberFormatException e) {
-					Log.w(TAG, "Error", e);
-				}
-
-				try {
-					mCookTime = Integer.valueOf(etCookTime.getText().toString());
-				} catch (NumberFormatException e) {
-					Log.w(TAG, "Error", e);
-				}
-
-				float ratio = mOriginalServings / mDesiredServings;
-
-				intent.putExtra("ingredients", ingredients);
-				startActivity(intent);
 			}
 		});
 	}

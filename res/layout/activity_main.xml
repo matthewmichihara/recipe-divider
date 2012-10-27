@@ -26,6 +26,15 @@
         android:text="@string/enter_original_recipe"
         android:textSize="20sp" />
 
+    <EditText
+        android:id="@+id/et_recipe_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/enter_recipe_name"
+        android:inputType="textCapWords" />
+
     <ListView
         android:id="@+id/lv_ingredients"
         android:layout_width="match_parent"

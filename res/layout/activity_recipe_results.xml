@@ -3,30 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
+    <Button
+        android:id="@+id/btn_save_to_recipe_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world"
-        tools:context=".RecipeResultsActivity" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/save_to_recipe_box" />
 
     <Button
         android:id="@+id/btn_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_save_to_recipe_box"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:text="@string/share" />
 
-    <Button
-        android:id="@+id/btn_save_to_recipe_box"
+    <TextView
+        android:id="@+id/tv_your_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/btn_share"
-        android:text="@string/save_to_recipe_box" />
+        android:layout_alignParentTop="true"
+        android:text="@string/your_recipe" />
+
+    <ListView
+        android:id="@+id/lv_ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_share"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_your_recipe" >
+    </ListView>
 
 </RelativeLayout>
