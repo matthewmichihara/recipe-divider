@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.recipedivider.R;
 import com.recipedivider.model.Recipe;
@@ -21,6 +22,16 @@ public class RecipeBoxActivity extends Activity {
 		final Recipe recipe = intent.getParcelableExtra("recipe");
 
 		Log.d(TAG, "recipe: " + recipe);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
