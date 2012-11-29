@@ -25,11 +25,13 @@
     <string name="quantity_unit_ingredient">%1$f %2$s - %3$s</string>
 
     <!-- Units -->
+    <string name="na">n/a</string>
     <string name="oz">oz</string>
     <string name="tbsp">tbsp</string>
     <string name="cup">cup</string>
 
     <string-array name="units_array">
+        <item>@string/na</item>
         <item>@string/oz</item>
         <item>@string/tbsp</item>
         <item>@string/cup</item>
