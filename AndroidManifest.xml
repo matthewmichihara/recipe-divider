@@ -35,6 +35,12 @@
             android:name=".ui.RecipeBoxActivity"
             android:label="@string/title_activity_recipe_box" >
         </activity>
+
+        <provider
+            android:name=".db.RecipeProvider"
+            android:authorities="com.recipedivider.contentprovider"
+            android:exported="false" >
+        </provider>
     </application>
 
 </manifest>

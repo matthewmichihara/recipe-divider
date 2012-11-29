@@ -1,6 +1,7 @@
 package com.recipedivider.ui;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
 import com.recipedivider.R;
+import com.recipedivider.db.OpenHelper;
+import com.recipedivider.db.RecipeProvider;
 import com.recipedivider.model.Recipe;
 
 public class RecipeResultsActivity extends Activity {
@@ -46,6 +50,14 @@ public class RecipeResultsActivity extends Activity {
 		btnSaveToRecipeBox.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(final View v) {
+				Gson gson = new Gson();
+				String jsonRecipe = gson.toJson(recipe);
+
+				ContentValues cv = new ContentValues();
+				cv.put(OpenHelper.COLUMN_JSON, jsonRecipe);
+
+				getContentResolver().insert(RecipeProvider.CONTENT_URI, cv);
+
 				final Intent intent = new Intent(RecipeResultsActivity.this, RecipeBoxActivity.class);
 				intent.putExtra("recipe", recipe);
 				startActivity(intent);
