@@ -6,20 +6,18 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.recipedivider.R;
-import com.recipedivider.db.OpenHelper;
 import com.recipedivider.db.RecipeProvider;
 
 public class RecipeBoxActivity extends FragmentActivity implements LoaderCallbacks<Cursor> {
 	private static final String TAG = RecipeBoxActivity.class.getSimpleName();
 
 	private ListView mLvRecipes;
-	private SimpleCursorAdapter mAdapter;
+	private RecipeCursorAdapter mAdapter;
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
@@ -29,7 +27,7 @@ public class RecipeBoxActivity extends FragmentActivity implements LoaderCallbac
 		mLvRecipes = (ListView) findViewById(R.id.lv_recipes);
 
 		// Create an empty adapter we will use to display the loaded data.
-		mAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, null, new String[] { OpenHelper.COLUMN_JSON }, new int[] { android.R.id.text1 }, 0);
+		mAdapter = new RecipeCursorAdapter(this);
 		mLvRecipes.setAdapter(mAdapter);
 
 		getSupportLoaderManager().initLoader(0, null, this);

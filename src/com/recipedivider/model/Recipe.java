@@ -19,6 +19,10 @@ public class Recipe implements Parcelable {
 		mCookTime = cookTime;
 	}
 
+	public String getName() {
+		return mName;
+	}
+
 	public List<Ingredient> getIngredients() {
 		return mIngredients;
 	}
