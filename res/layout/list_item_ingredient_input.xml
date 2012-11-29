@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingTop="10dp" >
 
     <EditText
         android:id="@+id/et_ingredient_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
         android:background="@drawable/input_field"
         android:hint="@string/ingredient_n"
         android:inputType="text"
@@ -23,72 +20,54 @@
         android:textSize="15sp" >
     </EditText>
 
-    <TextView
-        android:id="@+id/tv_quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/et_ingredient_name"
-        android:background="@drawable/input_label"
-        android:paddingBottom="13dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="13dp"
-        android:text="@string/quantity"
-        android:textColor="#FFFFFF" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <EditText
-        android:id="@+id/et_quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_quantity"
-        android:layout_alignTop="@+id/tv_quantity"
-        android:layout_toRightOf="@+id/tv_quantity"
-        android:background="@drawable/input_field"
-        android:inputType="number"
-        android:paddingRight="40dp"
-        android:textColor="#000000" />
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_label"
+            android:paddingBottom="13dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="13dp"
+            android:text="@string/quantity"
+            android:textColor="#FFFFFF" />
 
-    <Spinner
-        android:id="@+id/sp_units"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/et_quantity"
-        android:layout_alignRight="@+id/et_ingredient_name"
-        android:layout_alignTop="@+id/tv_units_of_measure"
-        android:layout_toRightOf="@+id/tv_units_of_measure"
-        android:background="@drawable/input_field"
-        android:textColor="#000000" />
+        <EditText
+            android:id="@+id/et_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/input_field"
+            android:inputType="number"
+            android:paddingRight="40dp"
+            android:textColor="#000000" />
+    </LinearLayout>
 
-    <View
-        android:id="@+id/divider_line_top"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_below="@+id/et_quantity"
-        android:layout_marginTop="15dp"
-        android:background="#eae6d8" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <View
-        android:id="@+id/divider_line_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_below="@+id/divider_line_top"
-        android:background="#f1eeea" />
+        <TextView
+            android:id="@+id/tv_units_of_measure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_label"
+            android:paddingBottom="13dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="13dp"
+            android:text="@string/units_of_measure"
+            android:textColor="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/tv_units_of_measure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/et_quantity"
-        android:layout_alignBottom="@+id/et_quantity"
-        android:layout_marginLeft="15dp"
-        android:layout_toRightOf="@+id/et_quantity"
-        android:background="@drawable/input_label"
-        android:paddingBottom="13dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="13dp"
-        android:text="@string/units_of_measure"
-        android:textColor="#FFFFFF" />
+        <Spinner
+            android:id="@+id/sp_units"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/input_field"
+            android:textColor="#000000" />
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

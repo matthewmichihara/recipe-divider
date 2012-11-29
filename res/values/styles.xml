@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.RecipeDivider" parent="android:style/Theme.Holo">
+    <style name="Theme.RecipeDivider" parent="android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/ActionBar</item>
     </style>
 
