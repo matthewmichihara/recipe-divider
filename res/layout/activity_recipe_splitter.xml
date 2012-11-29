@@ -31,7 +31,10 @@
         android:layout_marginRight="0dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/input_label"
-        android:padding="7dp"
+        android:paddingBottom="13dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="13dp"
         android:text="@string/original_servings"
         android:textColor="#FFFFFF" />
 
@@ -39,12 +42,14 @@
         android:id="@+id/et_original_servings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_original_servings"
         android:layout_alignTop="@+id/tv_original_servings"
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/tv_original_servings"
         android:background="@drawable/input_field"
         android:inputType="number"
         android:textColor="#000000" >
+
     </EditText>
 
     <TextView
@@ -56,7 +61,10 @@
         android:layout_marginRight="0dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/input_label"
-        android:padding="7dp"
+        android:paddingBottom="13dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="13dp"
         android:text="@string/desired_servings"
         android:textColor="#FFFFFF" />
 
@@ -69,7 +77,10 @@
         android:layout_marginRight="0dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/input_label"
-        android:padding="7dp"
+        android:paddingBottom="13dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="13dp"
         android:text="@string/cook_time"
         android:textColor="#FFFFFF" />
 
@@ -77,6 +88,7 @@
         android:id="@+id/et_cook_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_cook_time"
         android:layout_alignTop="@+id/tv_cook_time"
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/tv_cook_time"
@@ -88,8 +100,8 @@
         android:id="@+id/et_desired_servings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tv_desired_servings"
         android:layout_alignBottom="@+id/tv_desired_servings"
+        android:layout_alignTop="@+id/tv_desired_servings"
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/tv_desired_servings"
         android:background="@drawable/input_field"
