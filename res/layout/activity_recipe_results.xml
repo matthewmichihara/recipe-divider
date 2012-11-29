@@ -1,40 +1,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#edede5" >
 
-    <Button
-        android:id="@+id/btn_save_to_recipe_box"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/save_to_recipe_box" />
+        android:layout_below="@+id/lv_ingredients"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_border" >
 
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_save_to_recipe_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/next_btn"
+            android:text="@string/save_to_recipe_box"
+            android:textColor="#8d8d8d"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_save_to_recipe_box"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/share" />
+        android:layout_below="@+id/btn_save_to_recipe_box"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_border" >
+
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/next_btn"
+            android:text="@string/share"
+            android:textColor="#8d8d8d"
+            android:textSize="20sp" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tv_your_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/your_recipe" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/your_recipe"
+        android:textSize="20sp" />
 
     <ListView
         android:id="@+id/lv_ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_share"
+        android:layout_above="@+id/btn_save_to_recipe_box"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/tv_your_recipe" >
     </ListView>
