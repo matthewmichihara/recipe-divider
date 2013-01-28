@@ -14,12 +14,14 @@ import com.recipedivider.model.Ingredient;
 
 public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 
-	public IngredientArrayAdapter(final Context context, final List<Ingredient> ingredients) {
+	public IngredientArrayAdapter(final Context context,
+			final List<Ingredient> ingredients) {
 		super(context, R.layout.list_item_ingredient, ingredients);
 	}
 
 	@Override
-	public View getView(final int position, View convertView, final ViewGroup parent) {
+	public View getView(final int position, View convertView,
+			final ViewGroup parent) {
 		if (convertView == null) {
 			final LayoutInflater inflater = LayoutInflater.from(getContext());
 			convertView = inflater.inflate(R.layout.list_item_ingredient, null);
@@ -29,9 +31,11 @@ public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 		final double quantity = ingredient.getQuantity();
 		final String units = ingredient.getUnits();
 		final String name = ingredient.getName();
-		final String ingredientText = getContext().getString(R.string.quantity_unit_ingredient, quantity, units, name);
+		final String ingredientText = getContext().getString(
+				R.string.quantity_unit_ingredient, quantity, units, name);
 
-		final TextView tvIngredient = (TextView) convertView.findViewById(R.id.tv_ingredient);
+		final TextView tvIngredient = (TextView) convertView
+				.findViewById(R.id.tv_ingredient);
 		tvIngredient.setText(ingredientText);
 
 		return convertView;

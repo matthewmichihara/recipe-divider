@@ -1,5 +1,7 @@
 package com.recipedivider.ui;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ShareActionProvider;
 
 import com.google.gson.Gson;
 import com.recipedivider.R;
@@ -18,6 +21,7 @@ import com.recipedivider.db.OpenHelper;
 import com.recipedivider.db.RecipeProvider;
 import com.recipedivider.model.Recipe;
 
+@SuppressLint("NewApi")
 public class RecipeResultsActivity extends Activity {
 	private static final String TAG = RecipeResultsActivity.class
 			.getSimpleName();
@@ -27,6 +31,10 @@ public class RecipeResultsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_recipe_results);
 
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setTitle(R.string.your_recipe);
+
 		final Intent intent = getIntent();
 		final Recipe recipe = intent.getParcelableExtra("recipe");
 		Log.d(TAG, "recipe: " + recipe);
@@ -34,20 +42,6 @@ public class RecipeResultsActivity extends Activity {
 		final ListView lvIngredients = (ListView) findViewById(R.id.lv_ingredients);
 		lvIngredients.setAdapter(new IngredientArrayAdapter(this, recipe
 				.getIngredients()));
-
-		final Button btnShare = (Button) findViewById(R.id.btn_share);
-		btnShare.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(final View v) {
-				final Intent intent = new Intent(Intent.ACTION_SEND);
-				intent.setType("text/plain");
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-				intent.putExtra(Intent.EXTRA_SUBJECT, "Hello World");
-				intent.putExtra(Intent.EXTRA_TEXT,
-						"Check out this awesome recipe");
-				startActivity(Intent.createChooser(intent, "Share your recipe"));
-			}
-		});
 
 		final Button btnSaveToRecipeBox = (Button) findViewById(R.id.btn_save_to_recipe_box);
 		btnSaveToRecipeBox.setOnClickListener(new OnClickListener() {
@@ -64,6 +58,7 @@ public class RecipeResultsActivity extends Activity {
 				Intent intent = new Intent(RecipeResultsActivity.this,
 						MainActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("open_recipe_box_tab", true);
 				startActivity(intent);
 			}
 		});
@@ -82,6 +77,19 @@ public class RecipeResultsActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_recipe_results, menu);
+
+		ShareActionProvider shareActionProvider = (ShareActionProvider) menu
+				.findItem(R.id.menu_share).getActionProvider();
+
+		final Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("text/plain");
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+		intent.putExtra(Intent.EXTRA_SUBJECT, "Hello World");
+		intent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome recipe");
+
+		// Set the default share intent
+		shareActionProvider.setShareIntent(intent);
+
 		return true;
 	}
 }

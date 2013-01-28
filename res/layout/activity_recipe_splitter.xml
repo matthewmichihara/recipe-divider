@@ -4,24 +4,6 @@
     android:layout_height="match_parent"
     android:background="#edede5" >
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
-        android:background="@drawable/btn_border" >
-
-        <Button
-            android:id="@+id/btn_calculate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/next_btn"
-            android:text="@string/calculate_new_recipe"
-            android:textColor="#8d8d8d"
-            android:textSize="20sp" />
-    </FrameLayout>
-
     <TextView
         android:id="@+id/tv_original_servings"
         android:layout_width="wrap_content"
@@ -49,7 +31,6 @@
         android:background="@drawable/input_field"
         android:inputType="number"
         android:textColor="#000000" >
-
     </EditText>
 
     <TextView

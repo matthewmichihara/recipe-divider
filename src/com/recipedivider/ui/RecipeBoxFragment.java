@@ -4,16 +4,22 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
 import com.recipedivider.R;
+import com.recipedivider.db.OpenHelper;
 import com.recipedivider.db.RecipeProvider;
+import com.recipedivider.model.Recipe;
 
 @SuppressLint("NewApi")
 public class RecipeBoxFragment extends Fragment implements
@@ -29,6 +35,23 @@ public class RecipeBoxFragment extends Fragment implements
 				false);
 
 		mLvRecipes = (ListView) v.findViewById(R.id.lv_recipes);
+		mLvRecipes.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Cursor cursor = (Cursor) parent.getItemAtPosition(position);
+				int jsonColumnIndex = cursor
+						.getColumnIndexOrThrow(OpenHelper.COLUMN_JSON);
+
+				String jsonRecipe = cursor.getString(jsonColumnIndex);
+				Recipe recipe = new Gson().fromJson(jsonRecipe, Recipe.class);
+
+				Intent intent = new Intent(getActivity(),
+						RecipeResultsActivity.class);
+				intent.putExtra("recipe", recipe);
+				startActivity(intent);
+			}
+		});
 
 		// Create an empty adapter we will use to display the loaded data.
 		mAdapter = new RecipeCursorAdapter(getActivity());

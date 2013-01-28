@@ -1,9 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/item_calculate_new_recipe"
+        android:id="@+id/item_next"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="@string/calculate_new_recipe"/>
+        android:title="@string/next"/>
 
 </menu>

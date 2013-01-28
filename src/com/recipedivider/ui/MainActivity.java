@@ -21,21 +21,30 @@ public class MainActivity extends Activity {
 		actionBar.setDisplayShowHomeEnabled(true);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-		Tab tab = actionBar
+		Tab divideRecipeTab = actionBar
 				.newTab()
 				.setText(R.string.divide_recipe)
+				.setIcon(R.drawable.ic_recipe_divide_tab)
 				.setTabListener(
 						new TabListener<DivideRecipeFragment>(this,
 								"divide_recipe", DivideRecipeFragment.class));
-		actionBar.addTab(tab);
+		actionBar.addTab(divideRecipeTab);
 
-		tab = actionBar
+		Tab recipeBoxTab = actionBar
 				.newTab()
 				.setText(R.string.recipe_box)
+				.setIcon(R.drawable.ic_recipe_box_tab)
 				.setTabListener(
 						new TabListener<RecipeBoxFragment>(this, "recipe_box",
 								RecipeBoxFragment.class));
-		actionBar.addTab(tab);
+		actionBar.addTab(recipeBoxTab);
+
+		// Set the view to the recipe box tab if extra says we should.
+		boolean openRecipeBoxTab = getIntent().getBooleanExtra(
+				"open_recipe_box_tab", false);
+		if (openRecipeBoxTab) {
+			actionBar.setSelectedNavigationItem(recipeBoxTab.getPosition());
+		}
 	}
 
 	public static class TabListener<T extends Fragment> implements
