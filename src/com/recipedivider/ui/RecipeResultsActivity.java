@@ -19,7 +19,8 @@ import com.recipedivider.db.RecipeProvider;
 import com.recipedivider.model.Recipe;
 
 public class RecipeResultsActivity extends Activity {
-	private static final String TAG = RecipeResultsActivity.class.getSimpleName();
+	private static final String TAG = RecipeResultsActivity.class
+			.getSimpleName();
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
@@ -31,7 +32,8 @@ public class RecipeResultsActivity extends Activity {
 		Log.d(TAG, "recipe: " + recipe);
 
 		final ListView lvIngredients = (ListView) findViewById(R.id.lv_ingredients);
-		lvIngredients.setAdapter(new IngredientArrayAdapter(this, recipe.getIngredients()));
+		lvIngredients.setAdapter(new IngredientArrayAdapter(this, recipe
+				.getIngredients()));
 
 		final Button btnShare = (Button) findViewById(R.id.btn_share);
 		btnShare.setOnClickListener(new OnClickListener() {
@@ -41,7 +43,8 @@ public class RecipeResultsActivity extends Activity {
 				intent.setType("text/plain");
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
 				intent.putExtra(Intent.EXTRA_SUBJECT, "Hello World");
-				intent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome recipe");
+				intent.putExtra(Intent.EXTRA_TEXT,
+						"Check out this awesome recipe");
 				startActivity(Intent.createChooser(intent, "Share your recipe"));
 			}
 		});
@@ -58,8 +61,9 @@ public class RecipeResultsActivity extends Activity {
 
 				getContentResolver().insert(RecipeProvider.CONTENT_URI, cv);
 
-				final Intent intent = new Intent(RecipeResultsActivity.this, RecipeBoxActivity.class);
-				intent.putExtra("recipe", recipe);
+				Intent intent = new Intent(RecipeResultsActivity.this,
+						MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 			}
 		});

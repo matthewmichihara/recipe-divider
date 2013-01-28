@@ -13,8 +13,8 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.RecipeDivider" >
         <activity
-            android:name=".ui.MainActivity"
-            android:label="@string/title_activity_main"
+            android:name="com.recipedivider.ui.MainActivity"
+            android:label="@string/app_name"
             android:theme="@style/Theme.RecipeDivider.Main"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -30,10 +30,6 @@
         <activity
             android:name=".ui.RecipeResultsActivity"
             android:label="@string/title_activity_recipe_results" >
-        </activity>
-        <activity
-            android:name=".ui.RecipeBoxActivity"
-            android:label="@string/title_activity_recipe_box" >
         </activity>
 
         <provider

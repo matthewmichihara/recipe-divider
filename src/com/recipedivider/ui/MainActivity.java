@@ -1,62 +1,93 @@
 package com.recipedivider.ui;
 
-import java.util.ArrayList;
-
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.app.Activity;
-import android.content.Intent;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 
 import com.recipedivider.R;
-import com.recipedivider.model.Ingredient;
 
+@SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
 	@Override
-	public void onCreate(final Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
-		final ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
-		final EditText etRecipeName = (EditText) findViewById(R.id.et_recipe_name);
-		final ListView lvIngredients = (ListView) findViewById(R.id.lv_ingredients);
-		final IngredientInputArrayAdapter ingredientAdapter = new IngredientInputArrayAdapter(this, ingredients);
-		lvIngredients.setAdapter(ingredientAdapter);
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowHomeEnabled(true);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-		final Button btnAddIngredient = (Button) findViewById(R.id.btn_add_ingredient);
-		btnAddIngredient.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				ingredients.add(new Ingredient("", 0, getString(R.string.oz)));
-				ingredientAdapter.notifyDataSetChanged();
-			}
-		});
+		Tab tab = actionBar
+				.newTab()
+				.setText(R.string.divide_recipe)
+				.setTabListener(
+						new TabListener<DivideRecipeFragment>(this,
+								"divide_recipe", DivideRecipeFragment.class));
+		actionBar.addTab(tab);
 
-		final Button btnSplitRecipe = (Button) findViewById(R.id.btn_split_recipe);
-		btnSplitRecipe.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(final View v) {
-				final Intent intent = new Intent(MainActivity.this, RecipeSplitterActivity.class);
-				final String recipeName = etRecipeName.getText().toString();
-				intent.putExtra("recipeName", recipeName);
-				intent.putParcelableArrayListExtra("ingredients", ingredients);
-				startActivity(intent);
-			}
-		});
-
-		// Add the first ingredient.
-		ingredients.add(new Ingredient("", 0, getString(R.string.oz)));
-		ingredientAdapter.notifyDataSetChanged();
+		tab = actionBar
+				.newTab()
+				.setText(R.string.recipe_box)
+				.setTabListener(
+						new TabListener<RecipeBoxFragment>(this, "recipe_box",
+								RecipeBoxFragment.class));
+		actionBar.addTab(tab);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
+	public static class TabListener<T extends Fragment> implements
+			ActionBar.TabListener {
+		private Fragment mFragment;
+		private final Activity mActivity;
+		private final String mTag;
+		private final Class<T> mClass;
+
+		/**
+		 * Constructor used each time a new tab is created.
+		 * 
+		 * @param activity
+		 *            The host Activity, used to instantiate the fragment
+		 * @param tag
+		 *            The identifier tag for the fragment
+		 * @param clz
+		 *            The fragment's Class, used to instantiate the fragment
+		 */
+		public TabListener(Activity activity, String tag, Class<T> clz) {
+			mActivity = activity;
+			mTag = tag;
+			mClass = clz;
+		}
+
+		/* The following are each of the ActionBar.TabListener callbacks */
+
+		@Override
+		public void onTabSelected(Tab tab, FragmentTransaction ft) {
+			// Check if the fragment is already initialized
+			if (mFragment == null) {
+				// If not, instantiate and add it to the activity
+				mFragment = Fragment.instantiate(mActivity, mClass.getName());
+				ft.add(android.R.id.content, mFragment, mTag);
+			} else {
+				// If it exists, simply attach it in order to show it
+				ft.attach(mFragment);
+			}
+		}
+
+		@Override
+		public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+			if (mFragment != null) {
+				// Detach the fragment, because another one is being attached
+				ft.detach(mFragment);
+			}
+		}
+
+		@Override
+		public void onTabReselected(Tab tab, FragmentTransaction ft) {
+			// TODO Auto-generated method stub
+
+		}
 	}
 }
