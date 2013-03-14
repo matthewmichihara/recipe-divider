@@ -11,15 +11,44 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/input_field"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
         android:hint="@string/enter_recipe_name"
-        android:inputType="textCapWords" />
+        android:inputType="textCapWords"
+        android:paddingBottom="13dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="13dp"
+        android:textSize="15sp" />
 
     <ListView
         android:id="@+id/lv_ingredients"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="10dp"
-        android:layout_weight="1" />
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent" />
+
+    <FrameLayout
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/red_button"
+        android:clickable="true"
+        android:gravity="center"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_next"
+            android:drawablePadding="10dp"
+            android:text="@string/next"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 
 </LinearLayout>

@@ -1,35 +1,63 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#edede5" >
+    android:background="#edede5"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_recipe_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:drawableLeft="@drawable/ic_pot"
+        android:drawablePadding="7dp"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:text="SPAGHETTI"
+        android:textSize="24sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eae6d8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="4dp"
+        android:background="#f1eeea" />
 
     <ListView
         android:id="@+id/lv_ingredients"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/fl_save_to_recipe_box"
-        android:layout_alignParentTop="true" >
-    </ListView>
+        android:layout_height="0dp"
+        android:layout_margin="15dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:divider="@android:color/transparent"
+        android:padding="15dp" />
 
     <FrameLayout
-        android:id="@+id/fl_save_to_recipe_box"
+        android:id="@+id/btn_save_to_recipe_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:background="@drawable/btn_border" >
+        android:background="@drawable/red_button"
+        android:gravity="center"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp" >
 
-        <Button
-            android:id="@+id/btn_save_to_recipe_box"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/next_btn"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_next"
+            android:drawablePadding="10dp"
             android:text="@string/save_to_recipe_box"
-            android:textColor="#8d8d8d"
-            android:textSize="20sp" />
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="bold" />
     </FrameLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -28,7 +28,8 @@
         android:layout_alignTop="@+id/tv_original_servings"
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/tv_original_servings"
-        android:background="@drawable/input_field"
+        android:background="#ffffff"
+        android:gravity="center"
         android:inputType="number"
         android:textColor="#000000" >
     </EditText>
@@ -73,7 +74,8 @@
         android:layout_alignTop="@+id/tv_cook_time"
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/tv_cook_time"
-        android:background="@drawable/input_field"
+        android:background="#ffffff"
+        android:gravity="center"
         android:inputType="number"
         android:textColor="#000000" />
 
@@ -85,8 +87,32 @@
         android:layout_alignTop="@+id/tv_desired_servings"
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/tv_desired_servings"
-        android:background="@drawable/input_field"
+        android:background="#ffffff"
+        android:gravity="center"
         android:inputType="number"
         android:textColor="#000000" />
+
+    <FrameLayout
+        android:id="@+id/btn_calculate_new_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/red_button"
+        android:gravity="center"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_next"
+            android:drawablePadding="10dp"
+            android:text="@string/calculate_new_recipe"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 
 </RelativeLayout>

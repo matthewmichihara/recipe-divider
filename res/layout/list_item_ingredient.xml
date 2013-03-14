@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="vertical"
     android:paddingLeft="5dp"
     android:paddingRight="5dp" >
 
@@ -11,6 +10,6 @@
         android:id="@+id/tv_ingredient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -7,9 +7,6 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -55,6 +52,19 @@ public class DivideRecipeFragment extends Fragment {
 			}
 		});
 
+		final View btnNext = v.findViewById(R.id.btn_next);
+		btnNext.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				final Intent intent = new Intent(getActivity(),
+						RecipeSplitterActivity.class);
+				final String recipeName = mEtRecipeName.getText().toString();
+				intent.putExtra("recipeName", recipeName);
+				intent.putParcelableArrayListExtra("ingredients", mIngredients);
+				startActivity(intent);
+			}
+		});
+
 		// Add the first ingredient.
 		mIngredients.add(new Ingredient("", 0, getString(R.string.oz)));
 		mIngredientAdapter.notifyDataSetChanged();
@@ -66,24 +76,5 @@ public class DivideRecipeFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-	}
-
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		inflater.inflate(R.menu.fragment_divide_recipe, menu);
-		super.onCreateOptionsMenu(menu, inflater);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.item_next) {
-			final Intent intent = new Intent(getActivity(),
-					RecipeSplitterActivity.class);
-			final String recipeName = mEtRecipeName.getText().toString();
-			intent.putExtra("recipeName", recipeName);
-			intent.putParcelableArrayListExtra("ingredients", mIngredients);
-			startActivity(intent);
-		}
-		return super.onOptionsItemSelected(item);
 	}
 }

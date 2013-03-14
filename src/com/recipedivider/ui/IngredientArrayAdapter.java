@@ -1,5 +1,6 @@
 package com.recipedivider.ui;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import android.content.Context;
@@ -31,8 +32,12 @@ public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 		final double quantity = ingredient.getQuantity();
 		final String units = ingredient.getUnits();
 		final String name = ingredient.getName();
+
+		DecimalFormat df = new DecimalFormat("#.##");
+
 		final String ingredientText = getContext().getString(
-				R.string.quantity_unit_ingredient, quantity, units, name);
+				R.string.quantity_unit_ingredient, df.format(quantity), units,
+				name);
 
 		final TextView tvIngredient = (TextView) convertView
 				.findViewById(R.id.tv_ingredient);

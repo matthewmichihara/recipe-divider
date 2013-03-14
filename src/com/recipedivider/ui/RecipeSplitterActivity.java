@@ -6,9 +6,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.recipedivider.R;
 import com.recipedivider.model.Ingredient;
@@ -21,6 +23,7 @@ public class RecipeSplitterActivity extends Activity {
 	private EditText mEtOriginalServings;
 	private EditText mEtDesiredServings;
 	private EditText mEtCookTime;
+	private View mCalculateNewRecipeButton;
 	private String mRecipeName;
 	private ArrayList<Ingredient> mIngredients;
 
@@ -40,6 +43,36 @@ public class RecipeSplitterActivity extends Activity {
 		mEtOriginalServings = (EditText) findViewById(R.id.et_original_servings);
 		mEtDesiredServings = (EditText) findViewById(R.id.et_desired_servings);
 		mEtCookTime = (EditText) findViewById(R.id.et_cook_time);
+		mCalculateNewRecipeButton = findViewById(R.id.btn_calculate_new_recipe);
+
+		mCalculateNewRecipeButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				final Intent intent = new Intent(RecipeSplitterActivity.this,
+						RecipeResultsActivity.class);
+				intent.putExtra("showSaveButton", true);
+				try {
+					final int originalServings = Integer
+							.valueOf(mEtOriginalServings.getText().toString());
+					final int desiredServings = Integer
+							.valueOf(mEtDesiredServings.getText().toString());
+					final int cookTime = Integer.valueOf(mEtCookTime.getText()
+							.toString());
+
+					final Recipe recipe = new Recipe(mRecipeName, mIngredients,
+							originalServings, cookTime);
+					final Recipe dividedRecipe = recipe
+							.getDividedRecipe(desiredServings);
+					intent.putExtra("recipe", dividedRecipe);
+					startActivity(intent);
+				} catch (NumberFormatException e) {
+					Toast.makeText(RecipeSplitterActivity.this,
+							getString(R.string.please_complete_each_field),
+							Toast.LENGTH_SHORT).show();
+					Log.w(TAG, "Error", e);
+				}
+			}
+		});
 	}
 
 	@Override
@@ -48,35 +81,7 @@ public class RecipeSplitterActivity extends Activity {
 		case android.R.id.home:
 			finish();
 			return true;
-		case R.id.item_calculate_new_recipe:
-			final Intent intent = new Intent(RecipeSplitterActivity.this,
-					RecipeResultsActivity.class);
-			try {
-				final int originalServings = Integer
-						.valueOf(mEtOriginalServings.getText().toString());
-				final int desiredServings = Integer.valueOf(mEtDesiredServings
-						.getText().toString());
-				final int cookTime = Integer.valueOf(mEtCookTime.getText()
-						.toString());
-
-				final Recipe recipe = new Recipe(mRecipeName, mIngredients,
-						originalServings, cookTime);
-				final Recipe dividedRecipe = recipe
-						.getDividedRecipe(desiredServings);
-				intent.putExtra("recipe", dividedRecipe);
-				startActivity(intent);
-			} catch (NumberFormatException e) {
-				Log.w(TAG, "Error", e);
-			}
-
-			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_recipe_splitter, menu);
-		return true;
 	}
 }
