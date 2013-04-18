@@ -1,4 +1,4 @@
-package com.recipedivider.ui;
+package com.pixeltreelabs.recipedivider2.android.ui;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -8,7 +8,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 
-import com.recipedivider.R;
+import com.pixeltreelabs.recipedivider2.android.R;
 
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {

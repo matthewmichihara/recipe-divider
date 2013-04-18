@@ -1,4 +1,4 @@
-package com.recipedivider.model;
+package com.pixeltreelabs.recipedivider2.android.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

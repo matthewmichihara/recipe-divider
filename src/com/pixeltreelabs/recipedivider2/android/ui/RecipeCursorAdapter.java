@@ -1,4 +1,4 @@
-package com.recipedivider.ui;
+package com.pixeltreelabs.recipedivider2.android.ui;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.recipedivider.R;
-import com.recipedivider.db.OpenHelper;
-import com.recipedivider.model.Recipe;
+import com.pixeltreelabs.recipedivider2.android.R;
+import com.pixeltreelabs.recipedivider2.android.db.OpenHelper;
+import com.pixeltreelabs.recipedivider2.android.model.Recipe;
 
 class RecipeCursorAdapter extends CursorAdapter {
 	private final Gson mGson;
@@ -24,14 +24,16 @@ class RecipeCursorAdapter extends CursorAdapter {
 
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-		LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater layoutInflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		return layoutInflater.inflate(R.layout.list_item_recipe, null);
 	}
 
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
-		int jsonColumnIndex = cursor.getColumnIndexOrThrow(OpenHelper.COLUMN_JSON);
+		int jsonColumnIndex = cursor
+				.getColumnIndexOrThrow(OpenHelper.COLUMN_JSON);
 
 		String jsonRecipe = cursor.getString(jsonColumnIndex);
 		Recipe recipe = mGson.fromJson(jsonRecipe, Recipe.class);

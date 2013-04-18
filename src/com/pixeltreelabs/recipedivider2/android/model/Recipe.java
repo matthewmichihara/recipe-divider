@@ -1,4 +1,4 @@
-package com.recipedivider.model;
+package com.pixeltreelabs.recipedivider2.android.model;
 
 import java.util.ArrayList;
 import java.util.List;

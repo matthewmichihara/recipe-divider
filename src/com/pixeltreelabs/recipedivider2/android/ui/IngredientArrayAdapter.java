@@ -1,4 +1,4 @@
-package com.recipedivider.ui;
+package com.pixeltreelabs.recipedivider2.android.ui;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.recipedivider.R;
-import com.recipedivider.model.Ingredient;
+import com.pixeltreelabs.recipedivider2.android.R;
+import com.pixeltreelabs.recipedivider2.android.model.Ingredient;
 
 public class IngredientArrayAdapter extends ArrayAdapter<Ingredient> {
 

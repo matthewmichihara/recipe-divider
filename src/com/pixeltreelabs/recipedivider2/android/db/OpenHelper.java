@@ -1,4 +1,4 @@
-package com.recipedivider.db;
+package com.pixeltreelabs.recipedivider2.android.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

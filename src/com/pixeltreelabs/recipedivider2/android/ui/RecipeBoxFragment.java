@@ -1,4 +1,4 @@
-package com.recipedivider.ui;
+package com.pixeltreelabs.recipedivider2.android.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
@@ -16,10 +16,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
-import com.recipedivider.R;
-import com.recipedivider.db.OpenHelper;
-import com.recipedivider.db.RecipeProvider;
-import com.recipedivider.model.Recipe;
+import com.pixeltreelabs.recipedivider2.android.R;
+import com.pixeltreelabs.recipedivider2.android.db.OpenHelper;
+import com.pixeltreelabs.recipedivider2.android.db.RecipeProvider;
+import com.pixeltreelabs.recipedivider2.android.model.Recipe;
 
 @SuppressLint("NewApi")
 public class RecipeBoxFragment extends Fragment implements

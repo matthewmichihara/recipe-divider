@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.recipedivider"
+    package="com.pixeltreelabs.recipedivider2.android"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.RecipeDivider" >
         <activity
-            android:name="com.recipedivider.ui.MainActivity"
+            android:name="com.pixeltreelabs.recipedivider2.android.ui.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.RecipeDivider.Main"
             android:windowSoftInputMode="adjustPan" >
@@ -24,17 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.RecipeSplitterActivity"
+            android:name="com.pixeltreelabs.recipedivider2.android.ui.RecipeSplitterActivity"
             android:label="@string/title_activity_recipe_splitter"
             android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
         <activity
-            android:name=".ui.RecipeResultsActivity"
+            android:name="com.pixeltreelabs.recipedivider2.android.ui.RecipeResultsActivity"
             android:label="@string/title_activity_recipe_results" >
         </activity>
 
         <provider
-            android:name=".db.RecipeProvider"
+            android:name="com.pixeltreelabs.recipedivider2.android.db.RecipeProvider"
             android:authorities="com.recipedivider.contentprovider"
             android:exported="false" >
         </provider>

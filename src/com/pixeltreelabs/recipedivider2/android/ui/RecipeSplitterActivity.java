@@ -1,4 +1,4 @@
-package com.recipedivider.ui;
+package com.pixeltreelabs.recipedivider2.android.ui;
 
 import java.util.ArrayList;
 
@@ -12,9 +12,9 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.recipedivider.R;
-import com.recipedivider.model.Ingredient;
-import com.recipedivider.model.Recipe;
+import com.pixeltreelabs.recipedivider2.android.R;
+import com.pixeltreelabs.recipedivider2.android.model.Ingredient;
+import com.pixeltreelabs.recipedivider2.android.model.Recipe;
 
 public class RecipeSplitterActivity extends Activity {
 

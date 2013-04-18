@@ -1,4 +1,4 @@
-package com.recipedivider.ui;
+package com.pixeltreelabs.recipedivider2.android.ui;
 
 import java.util.ArrayList;
 
@@ -14,8 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.recipedivider.R;
-import com.recipedivider.model.Ingredient;
+import com.pixeltreelabs.recipedivider2.android.R;
+import com.pixeltreelabs.recipedivider2.android.model.Ingredient;
 
 @SuppressLint("NewApi")
 public class DivideRecipeFragment extends Fragment {

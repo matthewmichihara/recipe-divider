@@ -1,4 +1,4 @@
-package com.recipedivider.ui;
+package com.pixeltreelabs.recipedivider2.android.ui;
 
 import java.util.List;
 
@@ -14,28 +14,34 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.recipedivider.R;
-import com.recipedivider.model.Ingredient;
+import com.pixeltreelabs.recipedivider2.android.R;
+import com.pixeltreelabs.recipedivider2.android.model.Ingredient;
 
 public class IngredientInputArrayAdapter extends ArrayAdapter<Ingredient> {
 
-	private static final String TAG = IngredientInputArrayAdapter.class.getSimpleName();
+	private static final String TAG = IngredientInputArrayAdapter.class
+			.getSimpleName();
 
-	public IngredientInputArrayAdapter(final Context context, final List<Ingredient> ingredients) {
+	public IngredientInputArrayAdapter(final Context context,
+			final List<Ingredient> ingredients) {
 		super(context, R.layout.list_item_ingredient_input, ingredients);
 	}
 
 	@Override
-	public View getView(final int position, View convertView, final ViewGroup parent) {
+	public View getView(final int position, View convertView,
+			final ViewGroup parent) {
 		if (convertView == null) {
 			final LayoutInflater inflater = LayoutInflater.from(getContext());
-			convertView = inflater.inflate(R.layout.list_item_ingredient_input, null);
+			convertView = inflater.inflate(R.layout.list_item_ingredient_input,
+					null);
 		}
 
 		final Ingredient ingredient = getItem(position);
 
-		final EditText etIngredientName = (EditText) convertView.findViewById(R.id.et_ingredient_name);
-		final String ingredientN = getContext().getString(R.string.ingredient_n, position + 1);
+		final EditText etIngredientName = (EditText) convertView
+				.findViewById(R.id.et_ingredient_name);
+		final String ingredientN = getContext().getString(
+				R.string.ingredient_n, position + 1);
 		etIngredientName.setHint(ingredientN);
 
 		etIngredientName.setOnFocusChangeListener(new OnFocusChangeListener() {
@@ -45,25 +51,32 @@ public class IngredientInputArrayAdapter extends ArrayAdapter<Ingredient> {
 			}
 		});
 
-		final EditText etQuantity = (EditText) convertView.findViewById(R.id.et_quantity);
+		final EditText etQuantity = (EditText) convertView
+				.findViewById(R.id.et_quantity);
 		etQuantity.setOnFocusChangeListener(new OnFocusChangeListener() {
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				try {
-					ingredient.setQuantity(Integer.valueOf(etQuantity.getText().toString()));
+					ingredient.setQuantity(Integer.valueOf(etQuantity.getText()
+							.toString()));
 				} catch (NumberFormatException e) {
 					Log.w(TAG, "Error", e);
 				}
 			}
 		});
 
-		final Spinner spUnits = (Spinner) convertView.findViewById(R.id.sp_units);
-		final ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(getContext(), R.array.units_array, android.R.layout.simple_spinner_item);
-		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		final Spinner spUnits = (Spinner) convertView
+				.findViewById(R.id.sp_units);
+		final ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter
+				.createFromResource(getContext(), R.array.units_array,
+						android.R.layout.simple_spinner_item);
+		spinnerAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spUnits.setAdapter(spinnerAdapter);
 		spUnits.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
 				ingredient.setUnits((String) arg0.getItemAtPosition(arg2));
 			}
 
